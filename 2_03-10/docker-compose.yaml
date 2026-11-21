@@ -1,0 +1,11 @@
+services:
+  backend:
+    image: thisthingexist/backend-example
+    ports:
+      - 8080:8080
+    environment:
+      - REQUEST_ORIGIN=http://localhost:5001
+  frontend:
+    image: thisthingexist/frontend-example
+    ports:
+      - 5001:5001
