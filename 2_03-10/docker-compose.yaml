@@ -9,9 +9,21 @@ services:
     environment:
       - REQUEST_ORIGIN=http://localhost:5001
       - REDIS_HOST=redis
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
     restart: unless-stopped
 
   frontend:
     image: thisthingexist/frontend-example
     ports:
       - 5001:5001
+
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
